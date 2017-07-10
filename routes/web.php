@@ -19,6 +19,11 @@ Route::get('/', function () {
 
 Route::any('query6', ['uses' => 'StudentController@query6']);
 
+Route::any('orm1', ['uses' => 'StudentController@orm1']);
+Route::any('orm2', ['uses' => 'StudentController@orm2']);
+
+Route::any('request1', ['uses' => 'StudentController@request1']);
+
 
 Route::any('dome', function(){
     return view('dome');

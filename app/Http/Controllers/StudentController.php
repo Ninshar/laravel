@@ -9,6 +9,8 @@
 namespace App\Http\Controllers;
 
 
+use App\Student;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class StudentController extends Controller
@@ -97,9 +99,68 @@ class StudentController extends Controller
     }
 
     public function query6(){
-       $a = 1;
-       $b = 2;
-       return $a + $b;
+//        $delete1 = DB::table('student')
+//            ->where('id',1004)
+//            ->delete();
+//        if($delete1 == 1){
+//            return '删除成功';
+//        }else if($delete1 == 0){
+//            return '没有这条数据';
+//        }else{
+//            return '删除失败';
+//        }
+//        var_dump($delete1);
+//        删除表
+//        DB::table('students')->truncate();
+
+//        $student = DB::table('student')->get();
+//        dd($student);
+
+
+    }
+
+    public function orm1(){
+
+//        $student = Student::all();
+
+//        $student = Student::findOrFail(1004);
+
+//        dd($student);
+//        $student = Student::get();
+//
+//        var_dump($student);
+
+    }
+    public function orm2(){
+//        $student = new Student();
+//        $student->name = 'xuxu';
+//        $student->age  = 39;
+//        $bool = $student->save();
+//
+//        dd($bool);
+//        $student = Student::find(1012);
+
+//        echo date( $student->created_at);
+//        调用时间格式化
+//        echo date('Y-m-d H:i:s', $student->created_at);
+
+//        使用模型添加
+//        $student = Student::create(
+//            ['name'=>'理想','age' => 19]
+//        );
+//        dd($student);
+        $student = Student::get();
+        return view('dome',[
+            'students' => $student
+        ]);
+    }
+    public function request1(Request $request)
+    {
+        $name = $request->input("name");
+
+        return view('domes.request',[
+            'name' => $name
+        ]);
     }
 }
 

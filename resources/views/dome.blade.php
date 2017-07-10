@@ -81,7 +81,10 @@
         <div class="title m-b-md">
             天亮了
         </div>
-
+        {{--@foreach($students as $student)--}}
+            {{--<p>{{$student->name}}</p>--}}
+        {{--@endforeach--}}
+        <p>{{$name}}</p>
         <a href="javascript:alert('清除成功')">清除缓存</a>
         <a href="{{ url('/') }}">back Home</a>
 
